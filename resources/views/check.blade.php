@@ -7,7 +7,7 @@
 </head>
 <body>
 {{$errors}}
-    <form action="check" method="POST">
+    <form action="manual" method="POST">
     @csrf
     <label for="username">Username</label>
     <input type="text" name="username" id="username"><br>

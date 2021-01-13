@@ -8,7 +8,7 @@
 <body>
 <?php echo e($errors); ?>
 
-    <form action="check" method="POST">
+    <form action="name/manual" method="POST">
     <?php echo csrf_field(); ?>
     <label for="username">Username</label>
     <input type="text" name="username" id="username"><br>

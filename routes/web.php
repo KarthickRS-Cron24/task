@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ValidationController;
 use App\Http\Controllers\CookieController;
-
+use App\Http\Controllers\ManualController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,7 @@ class Service
 }
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['name'=>'karthick']);
 });
 Route::get('id',function() {
     echo '<br>Hello';
@@ -50,14 +50,11 @@ Route::get('/usser',function()
 {
     return view('register');
 });
-Route::get('/name',function()
-{
-    return view('validation');
-});
+
 
 Route::post('ussser/register',[TestController:: class, 'Store']);
 
-Route::get('name/register',[TestController:: class, 'nameStore']);
+Route::get('namew/register',[TestController:: class, 'nameStore']);
 
 Route::get('/homedash', function () {
     return redirect()->route('user');
@@ -69,7 +66,10 @@ Route::get('/home', function () {
 
 Route::get('/current', function()
 {
-    return URL::full();
+    echo URL::full()."<br>";
+    echo URL::current();
+    
+    return URL::to('/name11',array('foo','2','bar','8'));
 });
 Route::get('the/best/avenger', array('as' => 'ironman', function()
 {
@@ -104,3 +104,9 @@ Route::get('/logout',function()
 
 Route::get('cookie/set',[CookieController::class, 'setCookie']);
 Route::get('cookie/get',[CookieController::class, 'getCookie']);
+
+Route::post('name/manual', [ManualController::class , 'manualValidation']);
+Route::get('new',function()
+{
+    return view('name');
+});

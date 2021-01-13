@@ -21,6 +21,20 @@
         </style>
     </head>
     <body class="antialiased">
+             <?php if (isset($component)) { $__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3 = $component; } ?>
+<?php $component = $__env->getContainer()->make(App\View\Components\Header::class, ['name' => $name]); ?>
+<?php $component->withName('header'); ?>
+<?php if ($component->shouldRender()): ?>
+<?php $__env->startComponent($component->resolveView(), $component->data()); ?>
+<?php $component->withAttributes([]); ?>
+                This is slot
+             <?php if (isset($__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3)): ?>
+<?php $component = $__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3; ?>
+<?php unset($__componentOriginal99db13291ff287454d08b974e14dad64f9e2c6f3); ?>
+<?php endif; ?>
+<?php echo $__env->renderComponent(); ?>
+<?php endif; ?> 
+    </script>
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <?php if(Route::has('login')): ?>
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">

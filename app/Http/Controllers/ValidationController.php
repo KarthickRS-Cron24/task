@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\FormRequestValidation;
 
 
 class ValidationController extends Controller
@@ -10,18 +11,9 @@ class ValidationController extends Controller
     public function showForm(){
         return view('name');
     }
-    public function validationForm(Request $request)
+    public function validationForm(FormRequestValidation $request)
     {
-        
-        $data = $request->input();
-        print_r( $data);
-        $validated = $request->validate([
-            'username' => 'required',        
-            'password' => 'required'    
-      ]);
-      
-      $request-> session()->push($data);
-      echo session('user');
-      return redirect('profile');
+           
+      $validated=$request->validated();
     }
 }
