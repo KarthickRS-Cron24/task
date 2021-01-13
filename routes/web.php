@@ -5,6 +5,8 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ValidationController;
 use App\Http\Controllers\CookieController;
 use App\Http\Controllers\ManualController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EncyptController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -110,3 +112,13 @@ Route::get('new',function()
 {
     return view('name');
 });
+
+Route::get('a',function()
+{
+    return view('sample');
+});
+Route::post('auth',[LoginController::class,'authentication']);
+
+
+Route::get('encrypt',[EncyptController::class, 'encrypt']);
+Route::get('decrypt',[EncyptController::class, 'decrypt']);
